@@ -5,23 +5,27 @@ DROP TABLE IF EXISTS outfits;
 DROP TABLE IF EXISTS outfit_items;
 
 CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
 );
 
 CREATE TABLE brands (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT UNIQUE NOT NULL
 );
 
 CREATE TABLE articles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     article_type TEXT NOT NULL,
     brand_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
-    FOREIGN KEY (brand_id) REFERENCES brands (rowid),
-    FOREIGN KEY (user_id) REFERENCES users (rowid)
+    FOREIGN KEY (brand_id) REFERENCES brands (id),
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE outfits (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     occasion TEXT NOT NULL,
     user_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (rowid)
@@ -30,8 +34,8 @@ CREATE TABLE outfits (
 CREATE TABLE outfit_items (
     outfit_id INTEGER NOT NULL,
     article_id INTEGER NOT NULL,
-    FOREIGN KEY (outfit_id) REFERENCES outfits (rowid),
-    FOREIGN KEY (article_id) REFERENCES articles (rowid),
+    FOREIGN KEY (outfit_id) REFERENCES outfits (id),
+    FOREIGN KEY (article_id) REFERENCES articles (id),
     PRIMARY KEY (outfit_id, article_id)
 );
 
