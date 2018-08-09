@@ -6,6 +6,6 @@
         <input id="username" name="username" required/>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required/>
-        {% block submit %}{% endblock %}
+        <input type="submit" value="{% block submit_value %}{% endblock %}"/>
     </form>
 {% endblock %}
