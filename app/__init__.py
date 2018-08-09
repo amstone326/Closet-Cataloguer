@@ -26,7 +26,13 @@ def create_app(test_config=None):
     from . import db
     db.add_db_commands(app)
 
-    @app.route('/hello')
+    from . import auth
+    app.register_blueprint(auth.bp)
+
+    from . import clothes
+    app.register_blueprint(clothes.bp)
+
+    @app.route('/')
     def hello():
         return 'Hello, World!'
 
