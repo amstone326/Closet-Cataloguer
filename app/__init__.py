@@ -33,7 +33,7 @@ def create_app(test_config=None):
     app.register_blueprint(clothes.bp)
 
     @app.route('/')
-    def hello():
+    def index():
         return 'Hello, World!'
 
     return app
