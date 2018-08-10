@@ -29,11 +29,7 @@ def create_app(test_config=None):
     from . import auth
     app.register_blueprint(auth.bp)
 
-    from . import clothes
-    app.register_blueprint(clothes.bp)
-
-    @app.route('/')
-    def index():
-        return 'Hello, World!'
+    from . import closet
+    app.register_blueprint(closet.bp)
 
     return app

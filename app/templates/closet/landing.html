@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import article_display %}
+
+{% block header %}<h1>{% block title %}Dashboard{% endblock %}</h1>{% endblock %}
+
+{% block content %}
+    <h1>Items you haven't worn in a while: </h1>
+    {% for article in articles %}
+        {{ article_display(article) }}
+        {% if not loop.last %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+    <br>
+
+{% endblock %}
