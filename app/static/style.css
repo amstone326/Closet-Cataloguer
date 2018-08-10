@@ -1,1 +1,17 @@
-html { font-family: sans-serif; background: #eee; padding: 1rem; }
+html { font-family: sans-serif; background: #eee; padding: 1rem; color: #cc99ff }
+h1 { text-shadow: 2px 2px #5c0099ff; margin: 1rem; font-size: 2em; }
+body { max-width: 90vw; margin: 0 auto; }
+nav { background: lightgray; display: flex; align-items: center; padding: 0 0.5rem; }
+.content { margin: 5vh 2vw; }
+.content-header { }
+.nav-tab {
+    padding: .5rem 1rem; margin: 1rem; background: #5c0099ff;
+    text-decoration: none; color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.display-tile {
+    background: #fff; padding: 3vw; width: 20vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.subtext { color: #5c0099ff; font-size: .75em }
+.darker-text { color: #5c0099ff }

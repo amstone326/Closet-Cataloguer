@@ -1,17 +1,20 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - MyCloset</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+<div class="subtext" align="right">
+    {% if g.user %}
+        <span>Logged in user: {{ g.user['username'] }}</span>
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('auth.register') }}">Register</a>
+        <a href="{{ url_for('auth.login') }}">Log In</a><
+    {% endif %}
+</div>
 <nav>
     <h1>MyCloset</h1>
-    <ul>
-        {% if g.user %}
-            <li><span>Logged in user: {{ g.user['username'] }}</span></li>
-            <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
-        {% else %}
-            <li><a href="{{ url_for('auth.register') }}">Register</a></li>
-            <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
-        {% endif %}
-    </ul>
+    <a class="nav-tab" href="/">Inspiration</a>
+    <a class="nav-tab" href="/clothing/">Clothing</a>
+    <a class="nav-tab" href="/outfits/">Outfits</a>
 </nav>
 <section class="content">
     <header>{% block header %}{% endblock %}</header>

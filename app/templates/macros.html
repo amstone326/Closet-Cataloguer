@@ -1,7 +1,7 @@
 {% macro article_display(article) %}
-    <div class="article">
+    <div class="article display-tile">
         <h1>{{ article['short_desc'] }}</h1>
-        <div class="subtitle">{{ article['article_type'] }} by {{ article['brand_name'] }}</div>
-        <div class="subtitle">worn last on {{ article['last_wear'].strftime('%Y-%m-%d') }}</div>
+        <div class="subtext">{{ article['article_type'] }} by {{ article['brand_name'] }}</div>
+        <div class="subtext">worn last on {{ article['last_wear'].strftime('%Y-%m-%d') }}</div>
     </div>
 {% endmacro %}
