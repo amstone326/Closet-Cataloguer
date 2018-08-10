@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% from 'macros.html' import article_display %}
 
-{% block header %}<h2>{% block title %}Inspiration{% endblock %}</h2>{% endblock %}
+{% block title %}Inspiration{% endblock %}
 
 {% block content %}
-    <h3>Items you haven't worn in a while:</h3>
+    <h3 class="content-header">You haven't pulled these items out of your closet in a while...</h3>
     {% for article in articles %}
         {{ article_display(article) }}
         {% if not loop.last %}
@@ -12,6 +12,6 @@
         {% endif %}
     {% endfor %}
     <br>
-    <h3>Recently created outfits:</h3>
+    <h3 class="content-header">Your recent outfits...</h3>
 
 {% endblock %}
