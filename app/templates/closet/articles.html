@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
+{% from 'macros.html' import article_display, combobox %}
 {% block title %}Clothing{% endblock %}
-{% block content %}
 
+{% block content %}
+    {{ combobox('Article Type', type_options) }}
+    {{ combobox('Brand', brand_options) }}
+    {% for item in articles %}
+        {{ article_display(item) }}
+    {% endfor %}
 {% endblock %}

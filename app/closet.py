@@ -5,7 +5,9 @@ from flask import (
 from auth import login_required
 from db import get_db
 
+
 bp = Blueprint('closet', __name__)
+ARTICLE_TYPES = ["pants", "blouses", "tshirts", "sweaters", "cardigans", "skirts", "dresses"]
 
 
 @bp.route('/')
@@ -18,7 +20,7 @@ def index():
     not_recently_worn = db.execute(
         'SELECT short_desc, article_type, user_id, last_wear, brandname '
         'FROM articles JOIN brands ON articles.brand_id = brands.id '
-        'WHERE user_id = ? AND last_wear < ?',
+        'WHERE (user_id = ?) AND (last_wear is null OR last_wear < ?)',
         (curr_user_id, three_weeks_ago,)).fetchall()
 
     #one_week_ago = datetime.datetime.now() - datetime.timedelta(weeks=1)
@@ -29,6 +31,20 @@ def index():
 
 
 @bp.route('/clothing')
+@login_required
 def clothing():
-    pass
+    db = get_db()
+    curr_user_id = session['user_id']
 
+    all_articles = db.execute('SELECT * FROM articles WHERE user_id = ?', (curr_user_id,)).fetchall()
+    brand_names = db.execute('SELECT brandname FROM brands').fetchall()
+    all_brands = db.execute('SELECT * FROM brands').fetchall()
+
+    return render_template('closet/articles.html',
+                           articles=all_articles, brands=all_brands,
+                           type_options=ARTICLE_TYPES, brand_options=brand_names)
+
+
+@bp.route('/add_article')
+def add_article():
+    pass

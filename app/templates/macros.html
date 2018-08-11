@@ -5,3 +5,18 @@
         <div class="subtext">worn last on {{ article['last_wear'].strftime('%Y-%m-%d') }}</div>
     </div>
 {% endmacro %}
+
+{% macro filter_bar() %}
+{% endmacro %}
+
+{% macro combobox(title, options) %}
+    <div class="combobox">
+        <button id="dropdown_button" onclick="showDropdown(this)">{{ title }}</button>
+        <div class="dropdown-content">
+            <input type="text" placeholder="Filter.." id="myInput" onkeyup="filterFunction()">
+            {% for option in options %}
+                <div class="dropdown-option">{{ option }}</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}

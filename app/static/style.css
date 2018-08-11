@@ -19,3 +19,4 @@ input[type="submit"] { align-self: start; color: #5c0099ff; font-size: 2em; }
 }
 .subtext { color: #5c0099ff; font-size: .75em }
 .darker-text { color: #5c0099ff }
+.dropdown-content { display: none; }
