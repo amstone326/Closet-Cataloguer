@@ -3,8 +3,10 @@ from flask import Flask
 
 
 def create_app(test_config=None):
-    # __name__ is always the name of the current python module (this arg is telling the app object where it's located)
+    """ # __name__ is the name of the current python module (tells the app object where it's located)
     # instance_relative_config tells the app that config files are relative to the instance/ folder
+    """
+
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
@@ -23,8 +25,8 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import db
-    db.add_db_commands(app)
+    from .db import add_db_commands
+    add_db_commands(app)
 
     from . import auth
     app.register_blueprint(auth.bp)

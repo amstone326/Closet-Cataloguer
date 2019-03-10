@@ -2,8 +2,8 @@ import datetime
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from auth import login_required
-from db import get_db
+from app.db import get_db
+from app.auth import login_required
 
 
 bp = Blueprint('closet', __name__)
@@ -46,5 +46,6 @@ def clothing():
 
 
 @bp.route('/add_article')
+@login_required
 def add_article():
     pass
