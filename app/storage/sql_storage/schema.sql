@@ -17,8 +17,8 @@ CREATE TABLE brands (
 
 CREATE TABLE articles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    short_desc TEXT NOT NULL,
     article_type TEXT NOT NULL,
+    short_desc TEXT NOT NULL,
     brand_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     added TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

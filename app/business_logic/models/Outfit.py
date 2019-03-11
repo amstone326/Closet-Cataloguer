@@ -1,0 +1,2 @@
+class Outfit(object):
+    pass

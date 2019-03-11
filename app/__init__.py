@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, g
 
 
 def create_app(test_config=None):
@@ -25,13 +25,13 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from .db import add_db_commands
+    from .storage import add_db_commands
     add_db_commands(app)
 
     from . import auth
     app.register_blueprint(auth.bp)
 
-    from . import closet
+    from app.api import closet
     app.register_blueprint(closet.bp)
 
     return app

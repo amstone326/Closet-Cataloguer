@@ -2,7 +2,7 @@ import datetime
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
-from app.db import get_db
+from app.storage import get_db
 from app.auth import login_required
 
 

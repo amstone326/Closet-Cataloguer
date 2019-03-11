@@ -1,0 +1,2 @@
+class Brand(object):
+    pass
